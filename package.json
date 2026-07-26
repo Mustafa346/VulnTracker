@@ -1,0 +1,38 @@
+{
+  "name": "valntracker",
+  "version": "2.0.0",
+  "private": true,
+  "description": "ValnTracker — Full-stack Cybersecurity Intelligence Platform built with Next.js, MongoDB, and NextAuth.js",
+  "author": "FA24-BCE-043 | COMSATS University Islamabad",
+  "keywords": [
+    "cybersecurity",
+    "nextjs",
+    "mongodb",
+    "virustotal",
+    "threat-intelligence",
+    "vulnerability-tracker"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "node lib/seed.js"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "next-auth": "^4.24.7",
+    "mongoose": "^8.3.4",
+    "bcryptjs": "^2.4.3",
+    "axios": "^1.7.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3"
+  }
+}
