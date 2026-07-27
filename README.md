@@ -1,9 +1,6 @@
 # VulnTracker
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=40&duration=3000&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=🛡️+VulnTracker;Vulnerability+Tracker+Platform;Detect+%7C+Analyze+%7C+Protect" alt="VulnTracker" />
-
-<br/>
 
 ![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -14,11 +11,11 @@
 
 <br/>
 
-> **A full-stack cybersecurity intelligence platform** that empowers students, developers, and security professionals to **detect threats, scan URLs, analyse compromises, and educate themselves** — all in one unified dark-themed interface.
+> **A full-stack cybersecurity intelligence platform** that empowers students, developers, and security professionals to **detect threats, scan URLs, analyse compromises, and educate themselves** all in one unified dark-themed interface.
 
 <br/>
 
-[🔗 Live Demo](#) &nbsp;·&nbsp; [📖 Documentation](#table-of-contents) &nbsp;·&nbsp; [🐛 Report Bug](#) &nbsp;·&nbsp; [💡 Request Feature](#)
+[ Live Demo](#) &nbsp;·&nbsp; [📖 Documentation](#table-of-contents) &nbsp;·&nbsp; [🐛 Report Bug](#) &nbsp;·&nbsp; [💡 Request Feature](#)
 
 </div>
 
@@ -47,16 +44,16 @@
 
 ## 🛡️ About the Project
 
-**ValnTracker** (Vulnerability Tracker) is a comprehensive, full-stack cybersecurity web platform developed as the final milestone of a Web Application Development course. It was built across four assignments — progressing from a static HTML/CSS prototype all the way to a fully functional, database-backed, API-integrated, authenticated web application.
+**VulnTracker** (Vulnerability Tracker) is a comprehensive, full-stack cybersecurity web platform developed as the final milestone of a Web Application Development course. It was built across four assignments progressing from a static HTML/CSS prototype all the way to a fully functional, database-backed, API-integrated, authenticated web application.
 
-The platform was built with a single mission: **to make professional-grade cybersecurity tools and knowledge accessible to everyone** — whether you are a student learning about cyber threats for the first time, a developer checking a suspicious link, or a system administrator diagnosing a potential compromise.
+The platform was built with a single mission: **to make professional-grade cybersecurity tools and knowledge accessible to everyone** whether you are a student learning about cyber threats for the first time, a developer checking a suspicious link, or a system administrator diagnosing a potential compromise.
 
-ValnTracker combines:
-- 📚 A **Threat Encyclopedia** — a living knowledge base of documented attack types
-- 🔗 A **URL Safety Scanner** — real-time scanning powered by VirusTotal and Google Safe Browsing
-- 🖥️ A **Hack Checker** — a website compromise diagnostic tool powered by Shodan and symptom analysis
-- 👤 A **User Authentication System** — register, log in, and maintain a private session
-- 📊 A **Personal Dashboard** — track every scan you have ever run with full history, filters, and analytics
+VulnTracker combines:
+- 📚 A **Threat Encyclopedia** a living knowledge base of documented attack types
+- 🔗 A **URL Safety Scanner** real-time scanning powered by VirusTotal and Google Safe Browsing
+- 🖥️ A **Hack Checker** a website compromise diagnostic tool powered by Shodan and symptom analysis
+- 👤 A **User Authentication System** register, log in, and maintain a private session
+- 📊 A **Personal Dashboard** track every scan you have ever run with full history, filters, and analytics
 
 ---
 
@@ -85,13 +82,13 @@ ValnTracker combines:
 A curated, searchable database of **9 documented cyberattack types** served live from MongoDB Atlas.
 
 Each attack entry includes:
-- **Description** — what the attack is and how it works
-- **Warning Indicators** — signs that an attack may have occurred
-- **Prevention Checklist** — actionable steps to defend against it
-- **Real-World Example** — a famous breach or incident illustrating the attack
-- **Affected Systems** — what platforms and infrastructure are targeted
-- **CVSS Score** — industry-standard severity rating (0–10)
-- **Clickable Tags** — filter the encyclopedia instantly by tag
+- **Description** what the attack is and how it works
+- **Warning Indicators** signs that an attack may have occurred
+- **Prevention Checklist** actionable steps to defend against it
+- **Real-World Example** a famous breach or incident illustrating the attack
+- **Affected Systems** what platforms and infrastructure are targeted
+- **CVSS Score** industry-standard severity rating (0–10)
+- **Clickable Tags** filter the encyclopedia instantly by tag
 
 **Attacks covered:**
 
@@ -116,9 +113,9 @@ A real-time URL threat scanner that runs **three parallel security checks** usin
 1. User submits a URL
 2. The frontend shows a live **10-step animated scan log** while the API processes
 3. The backend calls all three engines simultaneously:
-   - **VirusTotal** — submits the URL and polls for results across 79 antivirus engines
-   - **Google Safe Browsing** — checks against MALWARE, SOCIAL_ENGINEERING, UNWANTED_SOFTWARE, and POTENTIALLY_HARMFUL_APPLICATION threat lists
-   - **URLScan.io** — full page behaviour analysis including screenshot
+   - **VirusTotal** submits the URL and polls for results across 79 antivirus engines
+   - **Google Safe Browsing** checks against MALWARE, SOCIAL_ENGINEERING, UNWANTED_SOFTWARE, and POTENTIALLY_HARMFUL_APPLICATION threat lists
+   - **URLScan.io** full page behaviour analysis including screenshot
 4. Results are combined into a **unified threat score (0–100)**
 5. A **circular SVG threat gauge** renders the score with colour coding
 6. A verdict is returned: `Safe`, `Suspicious`, or `Dangerous`
@@ -153,8 +150,8 @@ A website compromise diagnostic tool that combines **external API data with a sy
 | Slow performance | 10 pts |
 
 **Engines used:**
-- **Google Safe Browsing** — checks the website against Google's live blacklist
-- **Shodan** — queries open ports and known CVEs on the server (dangerous ports like 21, 23, 3306, 5432, 6379 flagged in red)
+- **Google Safe Browsing** checks the website against Google's live blacklist
+- **Shodan** queries open ports and known CVEs on the server (dangerous ports like 21, 23, 3306, 5432, 6379 flagged in red)
 
 **Verdicts:** `Clean`, `Suspicious`, `Compromised`
 
@@ -164,10 +161,10 @@ A website compromise diagnostic tool that combines **external API data with a sy
 A **protected route** accessible only to logged-in users. Displays:
 
 - **5 stat cards**: Total Scans, Safe/Clean, Suspicious, Dangerous, Average Threat Score
-- **Filterable scan history table** — filter by Type (URL / Website) and Verdict
-- **Expandable rows** — click any scan to see engine breakdown and recommendations
-- **Delete functionality** — remove individual scan records with ownership verification
-- **Aggregation pipeline** — stats computed with a single MongoDB `$group` aggregation
+- **Filterable scan history table** filter by Type (URL / Website) and Verdict
+- **Expandable rows** click any scan to see engine breakdown and recommendations
+- **Delete functionality** remove individual scan records with ownership verification
+- **Aggregation pipeline** stats computed with a single MongoDB `$group` aggregation
 
 ---
 
@@ -194,7 +191,7 @@ A **protected route** accessible only to logged-in users. Displays:
 | Technology | Version | Purpose |
 |---|---|---|
 | MongoDB Atlas | Cloud | NoSQL document database |
-| Mongoose | 8.3.4 | ODM — schema validation and query helpers |
+| Mongoose | 8.3.4 | ODM schema validation and query helpers |
 
 ### Authentication
 | Technology | Version | Purpose |
@@ -205,10 +202,10 @@ A **protected route** accessible only to logged-in users. Displays:
 ### External APIs
 | API | Type | Used In |
 |---|---|---|
-| VirusTotal v3 | Real API | `/api/scan-url` — 79-engine URL analysis |
-| Google Safe Browsing v4 | Real API | Both scan routes — malware and phishing blacklist |
-| URLScan.io v1 | Real + Mock | `/api/scan-url` — page behaviour and screenshot |
-| Shodan REST | Real + Mock | `/api/check-website` — ports and CVEs |
+| VirusTotal v3 | Real API | `/api/scan-url` 79-engine URL analysis |
+| Google Safe Browsing v4 | Real API | Both scan routes malware and phishing blacklist |
+| URLScan.io v1 | Real + Mock | `/api/scan-url` page behaviour and screenshot |
+| Shodan REST | Real + Mock | `/api/check-website` ports and CVEs |
 
 ---
 
@@ -264,7 +261,7 @@ React renders gauge, engine cards, recommendations
 ## 📁 Project Structure
 
 ```
-valntracker/
+vulntracker/
 │
 ├── 📄 package.json              ← Dependencies and npm scripts
 ├── 📄 tailwind.config.js        ← Custom design tokens and fonts
@@ -342,7 +339,7 @@ valntracker/
 {
   name:      String,   // min 2 chars, max 50 chars
   email:     String,   // unique, lowercase, regex validated
-  password:  String,   // bcrypt hash — plain text NEVER stored
+  password:  String,   // bcrypt hash plain text NEVER stored
   role:      String,   // 'user' | 'admin', default 'user'
   createdAt: Date,     // auto-added by Mongoose timestamps
   updatedAt: Date
@@ -419,13 +416,13 @@ valntracker/
 
 ## 🔐 Authentication System
 
-ValnTracker uses **NextAuth.js** with the **Credentials provider** for a complete self-hosted authentication system.
+VulnTracker uses **NextAuth.js** with the **Credentials provider** for a complete self-hosted authentication system.
 
 ### How it works:
-1. User registers via `POST /api/auth/register` — password hashed with **bcrypt (12 rounds)** before storage
-2. User logs in — NextAuth's `authorize()` function queries MongoDB, calls `bcrypt.compare()`
+1. User registers via `POST /api/auth/register` password hashed with **bcrypt (12 rounds)** before storage
+2. User logs in NextAuth's `authorize()` function queries MongoDB, calls `bcrypt.compare()`
 3. On success, a **JWT token** is created containing `{ id, name, email, role }`
-4. Token stored as an **HTTP-only cookie** — inaccessible to JavaScript (XSS protection)
+4. Token stored as an **HTTP-only cookie** inaccessible to JavaScript (XSS protection)
 5. All subsequent requests include the cookie automatically
 6. `getServerSession()` in API routes decodes the session to identify the user
 7. `requireAuth()` helper returns `401 Unauthorized` if no valid session exists
@@ -455,8 +452,8 @@ Make sure you have the following installed:
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/valntracker.git
-cd valntracker
+git clone https://github.com/YOUR_USERNAME/vulntracker.git
+cd vulntracker
 ```
 
 **2. Install all dependencies**
@@ -496,40 +493,40 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. 🎉
 
 ## 🔑 Environment Variables
 
-Create a `.env.local` file in the root of the project. **Never commit this file to GitHub** — it is already excluded by `.gitignore`.
+Create a `.env.local` file in the root of the project. **Never commit this file to GitHub** it is already excluded by `.gitignore`.
 
 ```env
 # ─────────────────────────────────────────────────────
-#  MongoDB Atlas — REQUIRED
+#  MongoDB Atlas REQUIRED
 # ─────────────────────────────────────────────────────
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/valntracker?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/vulntracker?retryWrites=true&w=majority
 
 # ─────────────────────────────────────────────────────
-#  NextAuth — REQUIRED
+#  NextAuth REQUIRED
 # ─────────────────────────────────────────────────────
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=any-random-32-character-string-here
 
 # ─────────────────────────────────────────────────────
-#  VirusTotal — Recommended (mock fallback if missing)
+#  VirusTotal Recommended (mock fallback if missing)
 #  Get free key: https://www.virustotal.com/gui/join-us
 # ─────────────────────────────────────────────────────
 VIRUSTOTAL_API_KEY=your_virustotal_key_here
 
 # ─────────────────────────────────────────────────────
-#  Google Safe Browsing — Recommended (mock fallback if missing)
+#  Google Safe Browsing Recommended (mock fallback if missing)
 #  Get key: https://console.cloud.google.com
 # ─────────────────────────────────────────────────────
 GOOGLE_SAFE_BROWSING_KEY=your_google_key_here
 
 # ─────────────────────────────────────────────────────
-#  URLScan.io — Optional (mock fallback if missing)
+#  URLScan.io Optional (mock fallback if missing)
 #  Get free key: https://urlscan.io/user/signup
 # ─────────────────────────────────────────────────────
 URLSCAN_API_KEY=your_urlscan_key_here
 
 # ─────────────────────────────────────────────────────
-#  Shodan — Optional (mock fallback if missing)
+#  Shodan Optional (mock fallback if missing)
 #  Get free key: https://account.shodan.io/register
 # ─────────────────────────────────────────────────────
 SHODAN_API_KEY=your_shodan_key_here
@@ -583,10 +580,10 @@ This project was developed as part of the **Web Application Development** course
 
 | Assignment | What Was Built |
 |---|---|
-| **Assignment 1** | Static HTML/CSS prototype — landing page, threat encyclopedia, hack checker, link scanner |
-| **Assignment 2** | JavaScript interactivity — live search, filters, animated progress bars, dynamic results |
-| **Assignment 3** | Next.js + React conversion — components, Tailwind CSS, useState/useEffect, routing |
-| **Assignment 4** | Full-stack backend — MongoDB, NextAuth, API routes, external API integrations, dashboard |
+| **Assignment 1** | Static HTML/CSS prototype landing page, threat encyclopedia, hack checker, link scanner |
+| **Assignment 2** | JavaScript interactivity live search, filters, animated progress bars, dynamic results |
+| **Assignment 3** | Next.js + React conversion components, Tailwind CSS, useState/useEffect, routing |
+| **Assignment 4** | Full-stack backend MongoDB, NextAuth, API routes, external API integrations, dashboard |
 
 ---
 
@@ -594,15 +591,15 @@ This project was developed as part of the **Web Application Development** course
 
 This project implements multiple layers of security:
 
-- **Password Hashing** — bcryptjs with 12 salt rounds; plain text never touches the database
-- **HTTP-Only Cookies** — JWT session tokens are inaccessible to JavaScript (XSS protection)
-- **Input Validation** — both client-side (React) and server-side (API routes)
-- **URL Validation** — `new URL()` constructor validates all submitted URLs before API calls
-- **Ownership Checks** — DELETE operations verify `userId` matches the session user
-- **Method Validation** — all API routes reject disallowed HTTP methods with `405`
-- **Environment Variables** — all secrets and keys stored in `.env.local`, never in code
-- **Mongoose Type Casting** — prevents NoSQL injection via schema-enforced types
-- **OWASP Alignment** — mitigations for A01 (Broken Access Control), A02 (Cryptographic Failures), A03 (Injection), A07 (Authentication Failures)
+- **Password Hashing** bcryptjs with 12 salt rounds; plain text never touches the database
+- **HTTP-Only Cookies** JWT session tokens are inaccessible to JavaScript (XSS protection)
+- **Input Validation** both client-side (React) and server-side (API routes)
+- **URL Validation** `new URL()` constructor validates all submitted URLs before API calls
+- **Ownership Checks** DELETE operations verify `userId` matches the session user
+- **Method Validation** all API routes reject disallowed HTTP methods with `405`
+- **Environment Variables** all secrets and keys stored in `.env.local`, never in code
+- **Mongoose Type Casting** prevents NoSQL injection via schema-enforced types
+- **OWASP Alignment** mitigations for A01 (Broken Access Control), A02 (Cryptographic Failures), A03 (Injection), A07 (Authentication Failures)
 
 ---
 
@@ -616,7 +613,7 @@ Distributed under the MIT License.
 
 Built with ❤️ for the Web Application Development course
 
-**ValnTracker** — *Detect. Analyze. Protect. Recover.*
+**VulnTracker** *Detect. Analyze. Protect. Recover.*
 
 ![Made with Next.js](https://img.shields.io/badge/Made%20with-Next.js-black?style=flat-square&logo=next.js)
 ![Powered by MongoDB](https://img.shields.io/badge/Powered%20by-MongoDB-47A248?style=flat-square&logo=mongodb)
