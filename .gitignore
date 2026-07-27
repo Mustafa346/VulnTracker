@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────────────────────────
+#  ValnTracker — .gitignore
+#  Files and folders that should NEVER be committed to GitHub
+# ─────────────────────────────────────────────────────────────
+
+# ── Node.js dependencies ──────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ── Next.js build output ──────────────────────────────────────
+.next/
+out/
+build/
+
+# ── Environment files — CRITICAL: never commit these ─────────
+# These contain API keys, database URIs, and secrets
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# ── Debug logs ────────────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ── OS generated files ────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── Editor files ──────────────────────────────────────────────
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── TypeScript ────────────────────────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Vercel deployment ─────────────────────────────────────────
+.vercel
+
+# ── Coverage reports ──────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Misc ──────────────────────────────────────────────────────
+*.pem
+.cache/
