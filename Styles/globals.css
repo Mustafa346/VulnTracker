@@ -1,0 +1,448 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   styles/globals.css
+   ValnTracker — Global Stylesheet
+
+   This is the ONLY place CSS is imported in a Next.js app.
+   It is loaded in pages/_app.js via: import '../styles/globals.css'
+
+   Contents:
+     1. Google Fonts import (Orbitron, JetBrains Mono, Syne, Inter)
+     2. Tailwind CSS directives (@base, @components, @utilities)
+     3. CSS Custom Properties (design tokens / variables)
+     4. Global reset and base styles
+     5. Scrollbar styling
+     6. Link and form element defaults
+     7. Keyframe animations
+     8. Animation utility classes
+     9. Responsive helpers
+   ───────────────────────────────────────────────────────────────────────────── */
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   1. GOOGLE FONTS
+   Loaded here so they are available across all pages without repeating
+   the <link> tag. Four font families are used in ValnTracker:
+
+     Orbitron      → hero headings, stat numbers, CTA buttons, card titles
+     JetBrains Mono → terminal text, code blocks, monospace numbers
+     Syne          → labels, badges, uppercase tracking text
+     Inter         → body text, form inputs, general UI (default font)
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   2. TAILWIND CSS DIRECTIVES
+   These three lines inject Tailwind's generated CSS:
+     @tailwind base       → normalises browser default styles
+     @tailwind components → Tailwind's built-in component classes
+     @tailwind utilities  → all the utility classes (flex, text-*, bg-*, etc.)
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   3. CSS CUSTOM PROPERTIES (Design Tokens)
+   All brand colours, fonts, spacing, and shadow values in one place.
+   Use these in inline styles and non-Tailwind CSS throughout the app.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Background colours ─────────────────────────────────────────────────── */
+  --color-bg:           #040e1a;   /* deepest background — page base */
+  --color-bg-card:      #091d2e;   /* card and panel backgrounds */
+  --color-bg-card2:     #0c2438;   /* slightly lighter card variant */
+  --color-bg-hover:     #163a55;   /* hover state for cards and rows */
+
+  /* ── Brand accent colours ───────────────────────────────────────────────── */
+  --color-primary:      #00d4ff;   /* cyan — primary CTA, links, highlights */
+  --color-primary-dark: #0099bb;   /* darker cyan for gradients */
+  --color-secondary:    #7b2fff;   /* purple — secondary accents */
+
+  /* ── Status / verdict colours ───────────────────────────────────────────── */
+  --color-danger:       #ff3366;   /* red — dangerous, critical */
+  --color-warning:      #ffaa00;   /* amber — suspicious, warning */
+  --color-success:      #00ff88;   /* green — safe, clean, success */
+
+  /* ── Neon variants (used in index.js) ──────────────────────────────────── */
+  --color-neon-green:   #00ff9d;
+  --color-neon-red:     #ff4560;
+  --color-neon-amber:   #f5a623;
+
+  /* ── Text colours ───────────────────────────────────────────────────────── */
+  --color-text:         #e8f4f8;   /* primary text — headings, important content */
+  --color-text-mid:     #b8dce8;   /* medium emphasis text */
+  --color-text-muted:   #3a6a80;   /* low emphasis — descriptions, labels */
+  --color-text-dim:     #888899;   /* very low emphasis — footers, timestamps */
+
+  /* ── Border colours ─────────────────────────────────────────────────────── */
+  --color-border:       rgba(255,255,255,0.08);
+  --color-border-glow:  rgba(0,212,255,0.25);
+
+  /* ── Font families ──────────────────────────────────────────────────────── */
+  --font-orbitron:      'Orbitron',       sans-serif;
+  --font-jetbrains:     'JetBrains Mono', monospace;
+  --font-syne:          'Syne',           sans-serif;
+  --font-inter:         'Inter',          sans-serif;
+
+  /* ── Border radii ───────────────────────────────────────────────────────── */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+
+  /* ── Box shadows ────────────────────────────────────────────────────────── */
+  --shadow-card:         0 4px 24px rgba(0,0,0,0.5);
+  --shadow-glow-cyan:    0 0 20px rgba(0,212,255,0.35);
+  --shadow-glow-purple:  0 0 20px rgba(123,47,255,0.35);
+  --shadow-glow-red:     0 0 20px rgba(255,51,102,0.35);
+  --shadow-glow-green:   0 0 20px rgba(0,255,136,0.35);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   4. GLOBAL RESET & BASE STYLES
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin:     0;
+  padding:    0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size:       16px;
+}
+
+body {
+  background-color:          var(--color-bg);
+  color:                     var(--color-text);
+  font-family:               var(--font-inter);
+  -webkit-font-smoothing:    antialiased;
+  -moz-osx-font-smoothing:   grayscale;
+  line-height:               1.6;
+  overflow-x:                hidden;
+  min-height:                100vh;
+}
+
+/* ── Typography defaults ────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-inter);
+  font-weight: 700;
+  line-height: 1.25;
+  color:       var(--color-text);
+}
+
+p {
+  color:       var(--color-text-muted);
+  line-height: 1.7;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-jetbrains);
+  font-size:   0.9em;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   5. SCROLLBAR STYLING
+   Custom scrollbar matching the dark cybersecurity theme.
+   Applied to the main window and all scrollable containers.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width:  6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background:    #1a3a55;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a5a7a;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1a3a55 var(--color-bg);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   6. LINKS, FORM ELEMENTS & BUTTON DEFAULTS
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Links ──────────────────────────────────────────────────────────────────── */
+a {
+  color:           var(--color-primary);
+  text-decoration: none;
+  transition:      opacity 0.2s, color 0.2s;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* ── Form elements — inherit font from body ─────────────────────────────────── */
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-inter);
+}
+
+/* ── Input placeholder colour ───────────────────────────────────────────────── */
+input::placeholder,
+textarea::placeholder {
+  color: #3a6a80;
+}
+
+/* ── Input focus state ──────────────────────────────────────────────────────── */
+input:focus,
+textarea:focus,
+select:focus {
+  outline:      none;
+  border-color: var(--color-primary) !important;
+  box-shadow:   0 0 0 2px rgba(0, 212, 255, 0.15);
+}
+
+/* ── Button defaults ────────────────────────────────────────────────────────── */
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor:  not-allowed;
+  opacity: 0.6;
+}
+
+/* ── Select dropdown option colours (for dark background) ───────────────────── */
+select option {
+  background: var(--color-bg-card);
+  color:      var(--color-text);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   7. KEYFRAME ANIMATIONS
+   All animations used across the application defined in one place.
+   Referenced by Tailwind config (animation: 'blink', 'cursor', etc.)
+   and by animation utility classes below.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Blinking cursor / status dot ──────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Terminal cursor blink ──────────────────────────────────────────────────── */
+@keyframes cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Fade in ────────────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Slide up with fade ─────────────────────────────────────────────────────── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Slide down with fade ───────────────────────────────────────────────────── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+/* ── Continuous spin ────────────────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Slow pulse (used for orbs and status indicators) ──────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.5; }
+}
+
+/* ── Glowing box-shadow cycle ───────────────────────────────────────────────── */
+@keyframes glow {
+  0%   { box-shadow: 0 0 5px rgba(0, 212, 255, 0.3); }
+  100% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.8), 0 0 50px rgba(0, 212, 255, 0.4); }
+}
+
+/* ── Background orb floating — slow drift pattern 1 ────────────────────────── */
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0)    scale(1);    }
+  50%       { transform: translate(40px, -50px) scale(1.06); }
+}
+
+/* ── Background orb floating — slow drift pattern 2 ────────────────────────── */
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0)     scale(1);    }
+  50%       { transform: translate(-30px, 40px) scale(0.96); }
+}
+
+/* ── Background orb floating — slow drift pattern 3 ────────────────────────── */
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0)   scale(1);    }
+  50%       { transform: translate(20px, 20px) scale(1.03); }
+}
+
+/* ── Scanning line effect (used in scan animations) ────────────────────────── */
+@keyframes scanLine {
+  from { transform: translateY(-100%);  }
+  to   { transform: translateY(100vh); }
+}
+
+/* ── Progress bar fill animation ────────────────────────────────────────────── */
+@keyframes fillBar {
+  from { width: 0%;    }
+  to   { width: 100%;  }
+}
+
+/* ── Navbar fade-down (used by dropdown menu) ───────────────────────────────── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   8. ANIMATION UTILITY CLASSES
+   Reusable classes that apply the keyframes above.
+   Used in JSX as className="animate-fade-in" etc.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Page entrance animations */
+.animate-fade-in   { animation: fadeIn  0.4s ease-out; }
+.animate-slide-up  { animation: slideUp 0.5s ease-out; }
+.animate-slide-down{ animation: slideDown 0.3s ease-out; }
+.animate-fade-down { animation: fadeDown 0.18s ease-out; }
+
+/* Loading / processing */
+.animate-spin      { animation: spin   0.8s linear infinite; }
+.animate-pulse     { animation: pulse  2s ease-in-out infinite; }
+
+/* Text / icon effects */
+.animate-blink     { animation: blink  1.2s step-end infinite; }
+.animate-cursor    { animation: cursor 1s   step-end infinite; }
+.animate-glow      { animation: glow   2s   ease-in-out infinite alternate; }
+
+/* Background elements */
+.animate-float1    { animation: float1 14s ease-in-out infinite; }
+.animate-float2    { animation: float2 18s ease-in-out infinite; }
+.animate-float3    { animation: float3 12s ease-in-out infinite; }
+.animate-scan      { animation: scanLine 2s linear infinite; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   9. SHARED UTILITY CLASSES
+   Common patterns used across multiple pages and components.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Background grid pattern ────────────────────────────────────────────────── */
+/* Applied to the fixed grid overlay in Layout.jsx */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ── Verdict colour helpers ──────────────────────────────────────────────────── */
+.verdict-safe        { color: var(--color-success); }
+.verdict-clean       { color: var(--color-success); }
+.verdict-suspicious  { color: var(--color-warning); }
+.verdict-dangerous   { color: var(--color-danger);  }
+.verdict-compromised { color: var(--color-danger);  }
+
+/* ── Generic card ────────────────────────────────────────────────────────────── */
+.card {
+  background:    var(--color-bg-card);
+  border:        1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding:       28px 32px;
+  box-shadow:    var(--shadow-card);
+}
+
+/* ── Badge ───────────────────────────────────────────────────────────────────── */
+.badge {
+  display:       inline-block;
+  padding:       4px 12px;
+  border-radius: 20px;
+  font-size:     12px;
+  font-weight:   600;
+  font-family:   var(--font-jetbrains);
+}
+
+.badge-cyan   { background: rgba(0,212,255,0.1);   border: 1px solid rgba(0,212,255,0.3);   color: var(--color-primary);  }
+.badge-red    { background: rgba(255,51,102,0.1);   border: 1px solid rgba(255,51,102,0.3);  color: var(--color-danger);   }
+.badge-amber  { background: rgba(255,170,0,0.1);    border: 1px solid rgba(255,170,0,0.3);   color: var(--color-warning);  }
+.badge-green  { background: rgba(0,255,136,0.1);    border: 1px solid rgba(0,255,136,0.3);   color: var(--color-success);  }
+.badge-purple { background: rgba(123,47,255,0.1);   border: 1px solid rgba(123,47,255,0.3);  color: var(--color-secondary);}
+
+/* ── Progress bar ────────────────────────────────────────────────────────────── */
+.progress-bar {
+  height:        4px;
+  background:    rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow:      hidden;
+}
+
+.progress-fill {
+  height:        100%;
+  border-radius: 2px;
+  background:    linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transition:    width 0.4s ease;
+}
+
+/* ── Section container ──────────────────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin:    0 auto;
+  padding:   0 32px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   10. RESPONSIVE HELPERS
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .card {
+    padding: 20px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+}
